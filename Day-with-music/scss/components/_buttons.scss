@@ -1,0 +1,21 @@
+@mixin customButton(
+  $textColor,
+  $bgColor,
+  $fontWeight,
+  $width: 14rem,
+  $height: 4.75rem
+) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+  color: $textColor;
+  font-weight: $fontWeight;
+  letter-spacing: 0.1rem;
+  text-transform: uppercase;
+  border-radius: 5px;
+  border: none;
+  &:hover {
+    cursor: pointer;
+    background: lighten($color: $bgColor, $amount: 5);
+  }
+}

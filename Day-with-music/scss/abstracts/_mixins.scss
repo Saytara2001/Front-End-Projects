@@ -1,0 +1,29 @@
+@use "../global/fonts" as *;
+@use "../global/colors" as *;
+
+@mixin HeadingStyleText($textColor, $fontSize: $heading-font) {
+  font-weight: 700;
+  line-height: 6rem;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
+@mixin ParagraphStyleText($textColor, $fontSize: $paragraph-font) {
+  font-weight: 600;
+  line-height: 2rem;
+  color: $textColor;
+  font-size: $fontSize;
+}
+
+@mixin StyleText($fontWeight, $lineHeight, $fontSize, $textColor) {
+  font-weight: $fontWeight;
+  font-size: $fontSize;
+  line-height: $lineHeight;
+  color: $textColor;
+}
+
+@mixin MediaQuery($width) {
+  @media screen and (max-width: $width) {
+    @content;
+  }
+}

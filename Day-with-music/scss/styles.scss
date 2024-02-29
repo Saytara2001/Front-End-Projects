@@ -1,0 +1,576 @@
+@use "global/colors" as *;
+@use "global/fonts" as *;
+@use "abstracts/mixins" as *;
+@use "abstracts/placeholders" as *;
+@use "components/box" as *;
+@use "components/buttons" as *;
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: $gray-bg;
+}
+
+// |==> Scroll Bar <==| //
+::-webkit-scrollbar {
+  width: 0.5rem;
+}
+
+::-webkit-scrollbar-track {
+  background-color: $gray-bg;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: darken($color: $green, $amount: 4);
+  border-radius: 2px;
+}
+
+// |==> Nav Bar <==| //
+
+nav {
+  position: relative;
+  z-index: 10;
+  padding: 3rem 6rem;
+  @extend %wrap-content;
+  gap: 2rem;
+  width: 100%;
+  header {
+    text-transform: uppercase;
+    @include StyleText(700, 0, 2rem, $black-text);
+    flex-grow: 2;
+  }
+  .nav-items {
+    display: flex;
+    justify-content: space-between;
+    flex-grow: 8;
+    ul {
+      list-style-type: none;
+      @extend %wrap-content;
+      gap: 6rem;
+      li {
+        font-weight: 600;
+        font-size: large;
+      }
+    }
+    button {
+      @include customButton($white, transparent, 700, 5.7rem, 2.2rem);
+      border-radius: 25px;
+      border: 2px solid $white;
+      margin-right: 6rem;
+      &:hover {
+        cursor: pointer;
+        background: lighten($green, 5);
+      }
+    }
+  }
+  .menu {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 0.5rem;
+    div {
+      border-radius: 5px;
+      background: $black-text;
+      width: 3rem;
+      height: 0.3rem;
+      display: none;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  // ! Responsive Media
+  @include MediaQuery(1350px) {
+    .nav-items {
+      display: none;
+      width: 50%;
+    }
+    .menu div {
+      display: block;
+    }
+  }
+  @include MediaQuery(620px) {
+    padding: 3rem 0.7rem;
+  }
+}
+
+// |==> First Section <==| //
+
+#first-section {
+  padding-left: 6rem;
+  background: $gray-bg;
+  .left {
+    padding-top: 2rem;
+    padding-bottom: 9rem;
+    width: 50%;
+    h1 {
+      @include HeadingStyleText($green);
+      span {
+        color: $darkblack;
+      }
+      padding-bottom: 2rem;
+    }
+    p {
+      @include ParagraphStyleText($black-text);
+      margin-bottom: 2rem;
+    }
+    button {
+      @include customButton($white, $black-bg, 700, 7.5rem, 2.5rem);
+    }
+  }
+
+  .right {
+    position: absolute;
+    top: 0;
+    right: 0;
+    background: $green;
+    border-top-left-radius: 5rem;
+    width: 610px;
+    height: 800px;
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  // ! Responsive Media
+  @include MediaQuery(1350px) {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: center;
+    align-items: center;
+    .left {
+      padding-top: 5rem;
+      width: 100%;
+      padding-bottom: 6rem;
+      h1 {
+        display: block;
+        width: 100%;
+        margin: auto;
+      }
+      p {
+        padding-right: 1.5rem;
+      }
+    }
+    .right {
+      align-self: flex-end;
+      position: relative;
+    }
+  }
+  @include MediaQuery(620px) {
+    padding-left: 1rem;
+    .left {
+      padding-top: 5rem;
+      h1 {
+        display: block;
+        width: 100%;
+        margin: auto;
+      }
+      p {
+        padding-right: 1.5rem;
+      }
+    }
+    .right {
+      width: 100%;
+      align-self: flex-end;
+      position: relative;
+    }
+  }
+}
+
+// |==> Second Section <==| //
+
+#second-section {
+  background: $gray-bg;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 22rem;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+  ul {
+    position: absolute;
+    top: -5%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
+    height: 4.5rem;
+    background: $black-bg;
+    color: $white;
+    list-style-type: none;
+    font-weight: bold;
+    @extend %wrap-content;
+    justify-content: space-around;
+    border-radius: 10px;
+    text-transform: uppercase;
+    padding: 0 1rem;
+    z-index: 10;
+    .divider {
+      width: 1px;
+      background: $white;
+      height: 100%;
+    }
+  }
+  .left {
+    background: orangered;
+    position: relative;
+    height: 700px;
+    max-width: 70%;
+    background: $green;
+    h1 {
+      @include HeadingStyleText($white);
+      // line-height: 4.5rem;
+      position: absolute;
+      top: 20%;
+      left: 9%;
+      z-index: 8;
+      width: 100%;
+    }
+    img {
+      position: absolute;
+      bottom: 0;
+      left: 42%;
+      object-fit: cover;
+      z-index: 6;
+    }
+    .box {
+      @include customBox($white, $black-bg);
+      position: absolute;
+      top: 87%;
+      left: 50%;
+      z-index: 6;
+      padding: 2rem 1.5rem;
+      border-radius: 25px;
+      i {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        color: darken($color: $white, $amount: 40);
+      }
+    }
+  }
+
+  .right {
+    padding: 6rem 3rem;
+    h1 {
+      text-transform: uppercase;
+      @include HeadingStyleText($darkblack);
+      margin-bottom: 2rem;
+    }
+    p {
+      @include ParagraphStyleText($black-text);
+      margin-bottom: 2rem;
+    }
+    button {
+      @include customButton($white, $black-bg, 700, 7.5rem, 2.5rem);
+    }
+  }
+
+  // ! Responsive Media
+
+  @include MediaQuery(1350px) {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    .left {
+      img {
+        max-width: 100%;
+      }
+      h1 {
+        left: 1%;
+      }
+    }
+    .right {
+      padding: 2rem 1rem;
+    }
+  }
+  @include MediaQuery(500px) {
+    .left {
+      .box {
+        left: 80%;
+        transform: translateX(-50%);
+        width: 100%;
+      }
+      height: 470px;
+    }
+  }
+  @include MediaQuery(600px) {
+    ul {
+      padding: 0;
+      width: 95%;
+      height: 3rem;
+      top: -3%;
+      li {
+        font-size: 0.7rem;
+        text-align: center;
+      }
+    }
+    .right {
+      padding-top: 8rem;
+    }
+  }
+}
+
+// |==> Third Section <==| //
+
+#third-section {
+  width: 90%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  background: $white;
+  border-top-right-radius: 100px;
+  gap: 5rem;
+  padding-top: 4rem;
+  padding-left: 6rem;
+  position: relative;
+  .left {
+    padding-top: 10rem;
+    padding-bottom: 12rem;
+    h1 {
+      @include HeadingStyleText($green, 4rem);
+      line-height: 4.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+    }
+    p {
+      @include ParagraphStyleText($black-text);
+      width: 100%;
+      margin-bottom: 3rem;
+    }
+    button {
+      @include customButton($white, $black-bg, 700, 7.5rem, 2.5rem);
+    }
+  }
+  .right {
+    position: relative;
+    img {
+      max-width: 100%;
+    }
+  }
+
+  // ! Responsive Media
+  @include MediaQuery(1350px) {
+    flex-direction: column-reverse;
+    gap: 2rem;
+    padding: 2rem 1rem;
+    .left {
+      padding-top: 2rem;
+      padding-bottom: 4rem;
+    }
+    .right {
+      align-self: flex-end;
+    }
+  }
+}
+
+// |==> Fourth Section <==| //
+
+#fourth-section {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: end;
+  border-top-right-radius: 100px;
+  gap: 5rem;
+  padding: 12rem 6rem 4rem 6rem;
+  position: relative;
+  .boxes {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    top: -5%;
+    @extend %wrap-content;
+    gap: 2rem;
+    .box {
+      @include customBox($white, $black-bg);
+      padding: 2rem 1.5rem;
+      border-radius: 25px;
+      width: 100%;
+      i {
+        margin-right: 1rem;
+        margin-bottom: 1rem;
+      }
+      p {
+        color: darken($color: $white, $amount: 40);
+      }
+    }
+    .box:nth-of-type(even) {
+      background: $green;
+      p {
+        color: darken($color: $white, $amount: 20);
+      }
+    }
+  }
+  .left {
+    align-self: center;
+    padding-bottom: 4rem;
+    h1 {
+      @include HeadingStyleText($green, 4rem);
+      line-height: 4.5rem;
+      text-transform: uppercase;
+      margin-bottom: 1rem;
+
+      span {
+        color: $darkblack;
+      }
+    }
+    p {
+      @include ParagraphStyleText($black-text);
+      width: 80%;
+      margin-bottom: 3rem;
+    }
+    button {
+      @include customButton($white, $green, 700, 7.5rem, 2.5rem);
+    }
+  }
+  .right {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 1fr;
+    grid-template-areas: "overlap";
+    img {
+      // grid-area: overlap;
+      // max-width: 100%;
+      border-radius: 20px;
+      object-fit: cover;
+    }
+    .img-1 {
+      width: 50%;
+      height: 35%;
+      grid-area: overlap;
+      justify-self: end;
+      z-index: 10;
+      align-self: start;
+    }
+    .img-2 {
+      max-width: 100%;
+      max-height: 80%;
+      grid-area: overlap;
+      justify-self: center;
+      align-self: end;
+    }
+  }
+
+  // ! Responsive Media
+  @include MediaQuery(1350px) {
+    padding: 12rem 1rem 4rem 1rem;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
+    padding-top: 2rem;
+    .boxes {
+      width: 100%;
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+      justify-content: center;
+      align-items: center;
+      align-self: center;
+    }
+    .left {
+      padding-top: 2rem;
+    }
+  }
+}
+
+// |==> Footer <==| //
+
+.list {
+  width: 100%;
+  background: $darkblack;
+  padding: 0 4rem;
+  ul {
+    color: $white;
+    list-style-type: none;
+    font-weight: bold;
+    gap: 1rem;
+    @extend %wrap-content;
+    justify-content: space-around;
+    text-transform: uppercase;
+    font-size: larger;
+    li {
+      text-align: center;
+    }
+    .divider {
+      width: 1px;
+      background: $white;
+      height: 4rem;
+    }
+    // ! Responsive Media
+    @include MediaQuery(600px) {
+      padding: 1rem 0rem;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+      .divider {
+        height: 1px;
+        background: $white;
+        width: 9rem;
+      }
+    }
+  }
+}
+
+footer {
+  padding: 5rem 10rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(15rem, 1fr));
+  gap: 2rem 15rem;
+  grid-template-rows: 1fr;
+  background: $green;
+  align-items: center;
+  color: $white;
+  .title {
+    max-width: 100%;
+    h1 {
+      padding-bottom: 1rem;
+      text-transform: uppercase;
+    }
+  }
+  .footer-list {
+    width: 10rem;
+    h3 {
+      padding-bottom: 0.7rem;
+    }
+    ul {
+      list-style-type: none;
+      display: flex;
+      flex-direction: column;
+      gap: 0.7rem;
+    }
+  }
+  @include MediaQuery(600px) {
+    padding: 3rem 2rem;
+  }
+}
+
+// ! Responsive Texts
+@include MediaQuery(500px) {
+  .medium-title-text {
+    font-size: 3rem !important;
+    line-height: 3rem !important;
+  }
+}
+
+@include MediaQuery(300px) {
+  .small-title-text {
+    font-size: 2rem !important;
+    line-height: 1.8rem !important;
+  }
+  .small-box-text {
+    font-size: 1.4rem !important;
+  }
+}

@@ -1,0 +1,6 @@
+@mixin customBox($textColor, $bgColor, $width: 20rem, $height: 13rem) {
+  width: $width;
+  height: $height;
+  background-color: $bgColor;
+  color: $textColor;
+}
