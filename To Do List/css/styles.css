@@ -93,7 +93,7 @@ main .container #tasks-list {
       -ms-flex-direction: column;
           flex-direction: column;
   gap: 0.5rem;
-  height: 30rem;
+  height: 25rem;
   overflow: auto;
   padding-right: 0.5rem;
 }
