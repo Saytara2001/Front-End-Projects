@@ -1,0 +1,196 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background: #3676fe url("../imgs/neom-gj7WgSOIIu4-unsplash.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+main {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-line-pack: center;
+      align-content: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+main .container {
+  background: white;
+  width: 30rem;
+  border-radius: 10px;
+  padding: 1.5rem;
+}
+main .container #container-input {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  margin-bottom: 1rem;
+  height: 3rem;
+}
+main .container #container-input input {
+  -webkit-box-flex: 6;
+      -ms-flex: 6;
+          flex: 6;
+  height: 1.5rem;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 1.4rem 1rem;
+  border: 1px solid gray;
+  border-radius: 5px;
+}
+main .container #container-input input:focus {
+  outline-color: #3676fe;
+}
+main .container #container-input button {
+  -webkit-box-flex: 2;
+      -ms-flex: 2;
+          flex: 2;
+  height: 100%;
+  font-size: 1rem;
+  background-color: #3676fe;
+  color: white;
+  font-weight: bold;
+  border: none;
+  border-radius: 5px;
+}
+main .container #container-input button:hover {
+  background-color: #407dfe;
+  cursor: pointer;
+}
+main .container #tasks-list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  gap: 0.5rem;
+  height: 30rem;
+  overflow: auto;
+  padding-right: 0.5rem;
+}
+main .container #tasks-list::-webkit-scrollbar {
+  width: 0.3rem;
+}
+main .container #tasks-list::-webkit-scrollbar-track {
+  background-color: white;
+}
+main .container #tasks-list::-webkit-scrollbar-thumb {
+  background-color: #3676fe;
+  border-radius: 10px;
+}
+main .container #tasks-list .task {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  border: 1px solid gray;
+  border-radius: 5px;
+  padding: 1rem;
+  background-color: #c7e0e5;
+}
+main .container #tasks-list .task .content {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 0.5rem;
+}
+main .container #tasks-list .task .content p {
+  letter-spacing: 0.02rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+main .container #tasks-list .task .content i:nth-of-type(1) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main .container #tasks-list .task .content i:nth-of-type(2) {
+  display: none;
+}
+main .container #tasks-list .task i {
+  cursor: pointer;
+}
+main .container #tasks-list .task i#delete {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+  cursor: pointer;
+}
+main .container #tasks-list .task i#delete:hover {
+  color: red;
+}
+main .container #tasks-list .done p {
+  text-decoration: line-through;
+  color: gray;
+}
+main .container #tasks-list .done .content i {
+  color: #3676fe;
+}
+main .container #tasks-list .done .content i:nth-of-type(1) {
+  display: none;
+}
+main .container #tasks-list .done .content i:nth-of-type(2) {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+main hr {
+  margin-top: 0.5rem;
+}
+main .footer {
+  padding: 0.8rem 0 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+main .footer p {
+  font-weight: bold;
+  color: black;
+}
+main .footer p:last-of-type {
+  cursor: pointer;
+  -webkit-transition: color 0.2s linear;
+  transition: color 0.2s linear;
+}
+main .footer p:last-of-type:hover {
+  color: red;
+}
